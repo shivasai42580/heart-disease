@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{%block contents%}
+
+ <section id="intro">
+
+    <div class="intro-text">
+
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <p><h2>Registration</h2></p>
+      <form method="POST" action="{%url 'UserRegisterAction'%}" >
+                {% csrf_token %}
+                <table>
+                    <tr><td>User Name</td><td>{{form.name}}</td></tr>
+                    <tr><td>Login ID</td><td>{{form.loginid}}</td></tr>
+                    <tr><td>Password</td><td>{{form.password}}</td></tr>
+                    <tr><td>Mobile</td><td>{{form.mobile}}</td></tr>
+                    <tr><td>email</td><td>{{form.email}}</td></tr>
+                    <tr><td>Locality</td><td>{{form.locality}}</td></tr>
+                    <tr><td>Address</td><td>{{form.address}}</td></tr>
+                    <tr><td>City</td><td>{{form.city}}</td></tr>
+                    <tr><td>State</td><td>{{form.state}}</td></tr>
+                    <tr><td></td><td>{{form.status}}</td></tr>
+
+                    <br><br>&nbsp;&nbsp;&nbsp;<tr><td><button  class="btn btn-outline-success my-2 my-sm-0" type="submit" style = "margin-left:20%;">Register</button></td></tr>
+
+                        {% if messages %}
+                               {% for message in messages %}
+                                  <font color='GREEN'> {{ message }}</font>
+                               {% endfor %}
+                           {% endif %}
+
+                </table>
+
+            </form>  </p><a class="nav-link" href="{%url 'UserLogin'%}">User Login</a>
+    </div>
+  </section>
+{%endblock%}
